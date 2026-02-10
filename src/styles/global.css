@@ -16,6 +16,7 @@
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 @supports (scrollbar-gutter: stable) {
@@ -257,6 +258,13 @@ input[name='theme-toggle'] {
   z-index: -1;
 }
 
+#home,
+#projects,
+#about {
+  scroll-margin-top: 90px;
+}
+
+
 @media (max-width: 1020px) {
   h1 {
     font-size: 3em;
@@ -278,4 +286,5 @@ input[name='theme-toggle'] {
     font-size: 1.2rem;
     margin: 1em 0;
   }
+
 }

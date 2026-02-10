@@ -1,49 +1,149 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Anthony D\'souza';
 const description = 'Gameplay programmmer';
 const permalink = Astro.site.href;
 
-const projects = [
+const ProfesionalProjects = [
   {
     name : "Demo Project",
+    image : "",
     tags : ["Unity" , "C#"],
-    desc : "This is a demo project"
-  },{
+    description : "This is a demo project"
+  },
+  { 
     name : "Demo Project",
+    image : "",
     tags : ["Unity" , "C#"],
-    desc : "This is a demo project"
-  },{
+    description : "This is a demo project"
+  },
+  {
     name : "Demo Project",
+    image : "",
     tags : ["Unity" , "C#"],
-    desc : "This is a demo project"
+    description : "This is a demo project"
   }
 ];
+
+const PersonalProjects = [
+{
+  name : "Botw Prototype",
+  image : "/assets/Images/Botw-Project-Img.png",
+  tags : ["Unity"],
+  description : "This is a Third-persorn protype inspired by the Legend of Zelda : Breath of the Wild"
+}
+] ;
 ---
-
-
 
 <!--Home section-->
 
 <BaseLayout title={title} description={description} permalink={permalink}>
-  <div class="home-container">
-    <div class="home-copy">
-      <h1 >Hi, I'm Anthony Dsouza</h1>
+  
+  <!--Video section -->
+
+  <section id ="home" class = "hero-video">
+<video id = "hero-video" src="/assets/gameplay.mp4"autoplay muted loop>
+</video>
+<div class = "hero-overlay"></div>
+  
+<div class = "hero-text">
+      <h2 >Hi, I'm Anthony Dsouza</h2>
       <p> I'm a Game developer</p>
+</div>
+
+</section>
+
+
+</section>
+
+<!--About section -->
+<!-- <section id ="about" class = "about-section">
+<h2>About me</h2>
+<p>Hi, I'm anthony Dsouza</p>
+
+</section> -->
+
+<!--Project section -->
+
+<section id = "project" class = "project-section">
+<header class = "project-header">
+<h2>Professional projects</h2>
+
+</header>
+
+<div class = "project-grid">
+
+{ProfesionalProjects.map((projects) =>( 
+  <article class = "project-card">
+    <img src={projects.image} alt = {projects.title}/>
+
+    <h3>{projects.name}</h3>
+
+    <div class = "project-tags">
+      {projects.tags.map((tag) => ( 
+        <span class = "tag"> {tag} </span>
+      ))}
+
     </div>
 
-    <!--Project section-->
-    <section class="projects-section">
-    <h2>Projects</h2>
-    </div class = "project-grid">
+    <p class="project-description">
+      {projects.description}
+    </p>
 
+    
+  </article>
+))}
+
+</div>
+</section>
+
+<!--Personal projects -->
+
+<section id = "project" class = "project-section">
+<header class = "project-header">
+<h2>Personal projects</h2>
+
+</header>
+
+<div class = "project-grid">
+
+{PersonalProjects.map((projects) =>( 
+  <article class = "project-card">
+    <img src={projects.image} alt = {projects.title}/>
+
+    <h3>{projects.name}</h3>
+
+    <div class = "project-tags">
+      {projects.tags.map((tag) => ( 
+        <span class = "tag"> {tag} </span>
+      ))}
     </div>
-    </section>
+
+    <p class="project-description">
+      {projects.description}
+    </p>
+
+    
+  </article>
+))}
+
+</div>
+</section>
+
+<!--Contact-->
+
+<section class = "contact-section">
+
+  <h2>Contact me</h2>
+
+</section>
 
 </BaseLayout>
 
 <style>
+
   .home-container {
     align-items: center;
     text-align: center;
@@ -52,23 +152,6 @@ const projects = [
     justify-content: center;
     margin: 2em 0;
     min-height: 400px;
-  }
-
-  .projects-section{
-    margin-top : 4em;
-    padding : 2e;
-  }
-
-  .projects-section h2{
-      font-size: 2.2rem:
-      margin-bottom: 1.5em;
-      text-align: center;
-  }
-
-  .project-grid{
-    display: grid;
-    grid-template-column: repeat  (auto-fit,minmax(280px,1fr));
-    gap: 1.5em;
   }
 
   .home-copy {
@@ -86,14 +169,77 @@ const projects = [
     font-size: 1.4em;
   }
 
-  .hero-image-container {
-    margin: 0 1em;
+  /*Project*/
+
+  .project-section{
+    margin-top : 6em;
+    padding : 2em;  
+  }
+
+  .project-header{
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .project-header h2{
+    font-size: 2.2rem:
+    margin-bottom: 1.5em;
     text-align: center;
   }
 
-  .hero-image-container picture {
+  .project-section h2{
+      font-size: 2.2rem:
+      margin-bottom: 1.5em;
+      text-align: center;
+  }
+
+  .project-grid{ 
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 3em;
+  }
+
+  .project-card{
+    justify-self: center;
+    background : #1c1c1c;
+    width: 360px;
+    padding : 1.5em;
+    border-radius : 16px;
+    box-shadow : 0 4px 15px rgba(0,0,0,0.4);
+    transition : transform 0.2s ease;
+  }
+  .project-card img{
     display: block;
-    min-height: 250px;
+    margin: 0 auto; 
+    margin-top: 1em;
+    margin-bottom: 2em;
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  .project-tags{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.8rem;
+  }
+
+  .project-description{
+    font-size: 0.85em;
+  }
+
+  .project-card:hover{
+  transform :translateY(-5px);
+  }
+
+  .project-card h3{
+  margin-botom : 0.5em;
+  font-size: 1.5 rem;
+  }
+
+  .project-card p {
+  opacity : 0.8;
+  line-height: 1.4;
   }
 
   .caption {
@@ -102,11 +248,79 @@ const projects = [
     text-align: left;
   }
 
-  .hero-image {
-    width: 100%;
-    max-width: 550px;
-    margin-bottom: 1em;
+  /* About section */
+  .about-section{
+    background-color: #5E6075;
+    margin top : 4em;
   }
+
+  .about-section h2{
+    text-align: center;
+  }
+    .about-section p{
+    text-align: center;
+    font-size: 1em;
+  }
+  /*hero video*/ 
+
+  .hero-video {
+    position: relative;
+    width : 100%;
+    height: 90dvh;
+    overflow: hidden;
+  }
+
+  .hero-video video {
+    position: absolute;
+        opacity: 50%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+  }
+
+  .hero-overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to margin-bottom:
+      rgba(0,0,0,0.14),
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.95)
+    );
+  }
+
+  .hero-text {
+    position:absolute;
+    inset: 0;
+    z-index : 2;
+
+    display: flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+    
+    text-align:left;
+
+    left: 160px;
+    top : 300px;
+  }
+
+  .hero-text p{
+    font-size: 1em;
+  }
+
+  /* Contact */
+  .contact-section{
+    
+    background-color: #5E6075;
+  }
+  .contact-section h2{
+    text-align: center;
+  
+  }
+  
 
   @media (max-width: 1200px) {
     p {
@@ -130,3 +344,26 @@ const projects = [
     }
   }
 </style>
+
+<script>
+  window.addEventListener("load", () => {
+    const video = document.getElementById("hero-video");
+
+    if (!(video instanceof HTMLVideoElement)) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      {
+        threshold: 0.25, // play when 25% visible
+      }
+    );
+
+    observer.observe(video);
+  });
+</script>
