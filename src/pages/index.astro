@@ -44,14 +44,17 @@ const PersonalProjects = [
   <!--Video section -->
 
   <section id ="home" class = "hero-video">
-<video id = "hero-video" src="/assets/gameplay.mp4"autoplay muted loop>
+<video id = "hero-video" src={`${Astro.base}assets/gameplay.mp4`} autoplay muted loop>
 </video>
 <div class = "hero-overlay"></div>
-  
+ 
+<div class = "hero-about">
 <div class = "hero-text">
       <h2 >Hi, I'm Anthony Dsouza</h2>
       <p> I'm a Game developer</p>
 </div>
+</div>
+
 
 </section>
 
@@ -247,32 +250,18 @@ const PersonalProjects = [
     font-style: italic;
     text-align: left;
   }
-
-  /* About section */
-  .about-section{
-    background-color: #5E6075;
-    margin top : 4em;
-  }
-
-  .about-section h2{
-    text-align: center;
-  }
-    .about-section p{
-    text-align: center;
-    font-size: 1em;
-  }
   /*hero video*/ 
 
   .hero-video {
     position: relative;
     width : 100%;
-    height: 90dvh;
+    height: 95dvh;
     overflow: hidden;
   }
 
   .hero-video video {
     position: absolute;
-        opacity: 50%;
+    opacity: 75%;
     top: 0;
     left: 0;
     width: 100%;
@@ -290,8 +279,13 @@ const PersonalProjects = [
       rgba(0,0,0,0.95)
     );
   }
+  .hero-about{
+        background-color: #012f55;
+        position:absolute;
+  }
 
-  .hero-text {
+  .hero-about{
+    background-color: #154847e7;
     position:absolute;
     inset: 0;
     z-index : 2;
@@ -300,11 +294,16 @@ const PersonalProjects = [
     flex-direction:column;
     align-items:stretch;
     justify-content:center;
-    
+    Top : 450px;
+  }
+  .hero-text {
+
+    position:absolute;
+
     text-align:left;
 
-    left: 160px;
-    top : 300px;
+    top : 0px;
+    left: 160px;  
   }
 
   .hero-text p{
@@ -314,7 +313,7 @@ const PersonalProjects = [
   /* Contact */
   .contact-section{
     
-    background-color: #5E6075;
+    background-color: #303030;
   }
   .contact-section h2{
     text-align: center;
@@ -363,7 +362,6 @@ const PersonalProjects = [
         threshold: 0.25, // play when 25% visible
       }
     );
-
     observer.observe(video);
   });
 </script>
