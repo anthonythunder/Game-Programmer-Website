@@ -8,31 +8,41 @@ const permalink = Astro.site.href;
 
 const ProfesionalProjects = [
   {
-    name : "Demo Project",
-    image : "",
+    name : "Thermoverse",
+    image : "/assets/Images/Thermax Logo 2_.png",
     tags : ["Unity" , "C#"],
-    description : "This is a demo project"
+    description : "internal Training/learning application for Thermax Limited", 
+    note : "Application was for internal use and not publicly released."
   },
   { 
-    name : "Demo Project",
-    image : "",
+    name : "Drone Simulator",
+    image : "/assets/Images/Drone simulator.png",
     tags : ["Unity" , "C#"],
-    description : "This is a demo project"
+    description : "Contributed to the development of a VR-based drone simulator used for training and operational practice.This is a demo project",
+    note : ""
   },
   {
     name : "Demo Project",
     image : "",
     tags : ["Unity" , "C#"],
-    description : "This is a demo project"
+    description : "This is a demo project",
+    note : ""
   }
 ];
 
 const PersonalProjects = [
 {
   name : "Botw Prototype",
-  image : "/assets/Images/Botw-Project-Img.png",
+  image : `assets/Images/Botw-Project-Img.png`,
   tags : ["Unity"],
-  description : "This is a Third-persorn protype inspired by the Legend of Zelda : Breath of the Wild"
+  description : "This is a Third-persorn protype inspired by the Legend of Zelda : Breath of the Wild",
+  note : ""
+},{
+  name : "First stop",
+  image : `assets/Images/First stop.png`,
+  tags : ["Unity"],
+  description : "Contributed as a gameplay programmer to create a boss rush game for jam",
+  note : ""
 }
 ] ;
 ---
@@ -44,29 +54,19 @@ const PersonalProjects = [
   <!--Video section -->
 
   <section id ="home" class = "hero-video">
-<video id = "hero-video" src={`${Astro.base}assets/gameplay.mp4`} autoplay muted loop>
+<video id = "hero-video" src= 'assets/gameplay.mp4' autoplay muted loop>
 </video>
 <div class = "hero-overlay"></div>
  
 <div class = "hero-about">
-<div class = "hero-text">
+<div class = "about-content">
       <h2 >Hi, I'm Anthony Dsouza</h2>
       <p> I'm a Game developer</p>
 </div>
 </div>
 
-
 </section>
 
-
-</section>
-
-<!--About section -->
-<!-- <section id ="about" class = "about-section">
-<h2>About me</h2>
-<p>Hi, I'm anthony Dsouza</p>
-
-</section> -->
 
 <!--Project section -->
 
@@ -95,6 +95,7 @@ const PersonalProjects = [
       {projects.description}
     </p>
 
+    <i>{projects.note}</i>
     
   </article>
 ))}
@@ -106,7 +107,7 @@ const PersonalProjects = [
 
 <section id = "project" class = "project-section">
 <header class = "project-header">
-<h2>Personal projects</h2>
+<h2>Personal work</h2>
 
 </header>
 
@@ -175,13 +176,15 @@ const PersonalProjects = [
   /*Project*/
 
   .project-section{
-    margin-top : 6em;
-    padding : 2em;  
+    h
   }
 
   .project-header{
+    height: 100px;
+    
     text-align: center;
-    margin-bottom: 4rem;
+    background-color: #000000;
+    /* margin-bottom: 0rem; */
   }
 
   .project-header h2{
@@ -198,17 +201,17 @@ const PersonalProjects = [
 
   .project-grid{ 
     display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns: repeat(3,1fr);
     gap: 3em;
   }
 
   .project-card{
     justify-self: center;
-    background : #1c1c1c;
+    background : #292930ac;
     width: 360px;
     padding : 1.5em;
     border-radius : 16px;
-    box-shadow : 0 4px 15px rgba(0,0,0,0.4);
+    box-shadow : 0 4px 15px rgba(0, 0, 0, 0.084);
     transition : transform 0.2s ease;
   }
   .project-card img{
@@ -216,8 +219,12 @@ const PersonalProjects = [
     margin: 0 auto; 
     margin-top: 1em;
     margin-bottom: 2em;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 280px;
+    max-height: 280px;
+  }
+
+  .project-card i{
+    font-size: .65em;
   }
 
   .project-tags{
@@ -255,8 +262,8 @@ const PersonalProjects = [
   .hero-video {
     position: relative;
     width : 100%;
-    height: 95dvh;
-    overflow: hidden;
+    height: 100dvh;
+    /* overflow: hidden; */
   }
 
   .hero-video video {
@@ -273,19 +280,19 @@ const PersonalProjects = [
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to margin-bottom:
+      to bottom,
       rgba(0,0,0,0.14),
       rgba(0,0,0,0.6),
       rgba(0,0,0,0.95)
     );
   }
-  .hero-about{
+  /* .hero-about{
         background-color: #012f55;
         position:absolute;
-  }
+  } */
 
   .hero-about{
-    background-color: #154847e7;
+    background-color: #292930db;
     position:absolute;
     inset: 0;
     z-index : 2;
@@ -296,24 +303,23 @@ const PersonalProjects = [
     justify-content:center;
     Top : 450px;
   }
-  .hero-text {
+  .about-content {
 
     position:absolute;
 
     text-align:left;
-
     top : 0px;
     left: 160px;  
   }
 
-  .hero-text p{
-    font-size: 1em;
+  .about-content p{
+    font-size: .8em;
   }
 
   /* Contact */
   .contact-section{
     
-    background-color: #303030;
+    background-color: #575757;
   }
   .contact-section h2{
     text-align: center;
@@ -345,11 +351,9 @@ const PersonalProjects = [
 </style>
 
 <script>
-  window.addEventListener("load", () => {
-    const video = document.getElementById("hero-video");
+  const video = document.getElementById("hero-video");
 
-    if (!(video instanceof HTMLVideoElement)) return;
-
+  if (video instanceof HTMLVideoElement) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -358,10 +362,10 @@ const PersonalProjects = [
           video.pause();
         }
       },
-      {
-        threshold: 0.25, // play when 25% visible
-      }
+      { threshold: 0.25 }
     );
+
     observer.observe(video);
-  });
+  }
 </script>
+
