@@ -6,6 +6,23 @@ const { current = '' } = Astro.props;
 ---
 
 <style>
+  .header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: var(--background-body);
+    width: 100%;
+    /* Add a subtle shadow if it looks good, but keeping it simple for now */
+  }
+
+  /* This invisible box pushes the rest of the page down so the fixed header doesn't cover content initially */
+  .header-spacer {
+    height: 80px;
+    width: 100%;
+    display: block;
+  }
+
   header {
     display: flex;
     align-items: center;
@@ -25,7 +42,10 @@ const { current = '' } = Astro.props;
   }
 </style>
 
-<header>
-  <Logo />
-  <Nav current={current} />
-</header>
+<div class="header-wrapper">
+  <header>
+    <Logo />
+    <Nav current={current} />
+  </header>
+</div>
+<div class="header-spacer"></div>
