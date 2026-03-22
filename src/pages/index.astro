@@ -439,6 +439,26 @@ const PersonalProjects = [
       padding: 2rem;
       align-items: center;
     }
+    
+    .project-grid {
+      grid-template-columns: 1fr;
+      padding: 2em 1em;
+      gap: 2em;
+    }
+    
+    .project-card {
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .hero-about {
+      top: 60%;
+    }
+
+    .about-content {
+      left: 20px;
+      right: 20px;
+    }
   }
 
   @media (max-width: 1200px) {
@@ -448,6 +468,11 @@ const PersonalProjects = [
 
     .hero-image {
       max-width: 400px;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, 1fr);
+      padding: 3em 2em;
     }
   }
 

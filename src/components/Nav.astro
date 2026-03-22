@@ -55,8 +55,15 @@ const { current = '' } = Astro.props;
   }
   
   @media screen and (max-width: 520px) {
+    a {
+      margin-left: 10px;
+      min-width: auto;
+      font-size: 0.85em;
+      padding: 5px;
+    }
     .theme-toggle-container {
-      margin-right: 1em;
+      margin-right: 0.5em;
+      width: auto;
     }
   }
 
