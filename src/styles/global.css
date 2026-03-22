@@ -262,7 +262,7 @@ input[name='theme-toggle'] {
 }
 
 #home,
-#projects,
+#project,
 #about {
   scroll-margin-top: 90px;
 }

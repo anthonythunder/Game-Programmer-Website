@@ -1,6 +1,6 @@
 ---
-import ThemeToggleButton from './ThemeToggleButton.svelte';
-const { current = '' } = Astro.props;
+import ThemeToggleButton from "./ThemeToggleButton.svelte";
+const { current = "" } = Astro.props;
 ---
 
 <style>
@@ -30,9 +30,9 @@ const { current = '' } = Astro.props;
   }
 
   a::before {
-    content: '';
+    content: "";
     position: absolute;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -53,7 +53,7 @@ const { current = '' } = Astro.props;
   .theme-toggle-container {
     width: 75px;
   }
-  
+
   @media screen and (max-width: 520px) {
     a {
       margin-left: 10px;
@@ -66,14 +66,24 @@ const { current = '' } = Astro.props;
       width: auto;
     }
   }
-
 </style>
 
 <nav>
-  <a class={current === "" ? "selected" : ""} href='/#home'>home</a>
-  <a class={current === "project" ? "selected" : ""} href='/#project'>projects</a>
-  <a class={current === "about" ? "selected" : ""} href='/#about'>about</a>
-  <a class={current === "resume" ? "selected" : ""} href='/resume'>resume</a>
+  <a class={current === "" ? "selected" : ""} href={import.meta.env.BASE_URL}
+    >home</a
+  >
+  <a
+    class={current === "project" ? "selected" : ""}
+    href={`${import.meta.env.BASE_URL}#project`}>projects</a
+  >
+  <a
+    class={current === "about" ? "selected" : ""}
+    href={`${import.meta.env.BASE_URL}#about`}>about</a
+  >
+  <a
+    class={current === "resume" ? "selected" : ""}
+    href={`${import.meta.env.BASE_URL}resume`}>resume</a
+  >
   <div class="theme-toggle-container">
     <ThemeToggleButton client:load />
   </div>

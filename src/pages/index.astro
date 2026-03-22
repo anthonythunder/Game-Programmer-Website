@@ -60,11 +60,11 @@ const PersonalProjects = [
   <!--Video section -->
 
   <section id="home" class="hero-video">
-    <video id="hero-video" src=`assets/gameplay.mp4` autoplay muted loop>
+    <video id="hero-video" src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`} autoplay muted loop playsinline>
     </video>
     <div class="hero-overlay"></div>
 
-    <div class="hero-about">
+    <div class="hero-about" id="about">
       <div class="about-content">
         <h2>Hi, I'm Anthony Dsouza</h2>
         <p>I'm a Game developer</p>
@@ -494,6 +494,12 @@ const PersonalProjects = [
     const video = document.getElementById("hero-video");
 
     if (video instanceof HTMLVideoElement) {
+      // Force mobile device autoplay compliance on SPA navigation
+      video.muted = true;
+      video.defaultMuted = true;
+      video.load(); // Force the browser to reset the video stream to guarantee re-initialization
+      video.play().catch(() => {});
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (entry.isIntersecting) {
