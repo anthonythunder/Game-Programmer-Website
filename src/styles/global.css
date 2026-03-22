@@ -41,6 +41,7 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   color: var(--text-main);
+  overflow-x: hidden;
 }
 
 h1,
