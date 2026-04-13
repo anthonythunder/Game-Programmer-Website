@@ -7,51 +7,9 @@ const email = "dsouzaanthony781@gmail.com";
 const phone = "+91 9325374664";
 const github = "https://github.com/anthonythunder";
 const linkedin = "https://www.linkedin.com/in/anthony-dsouza-12o4/";
-const permalink = Astro.site.href;
+const permalink = Astro.site?.href || Astro.url.href;
 
-const ProfessionalProjects = [
-  {
-    name: "Thermoverse",
-    image: `assets/Images/Thermax Logo 2_.png`,
-    tags: ["Unity", "C#"],
-    description: "internal Training/learning application for Thermax Limited",
-    note: "Application was for internal use and not publicly released.",
-  },
-  {
-    name: "Drone Simulator",
-    image: `assets/Images/Drone simulator.png`,
-    tags: ["Unity", "C#"],
-    description:
-      "Contributed to the development of a VR-based drone simulator used for training and operational practice.This is a demo project",
-    note: "",
-  },
-  {
-    name: "Insas Gun Assembly VR",
-    image: `assets/Images/Insas Gun thumbnail.png`,
-    tags: ["Unity", "C#"],
-    description: "This is a demo project",
-    note: "",
-  },
-];
-
-const PersonalProjects = [
-  {
-    name: "Botw Prototype",
-    image: `assets/Images/Botw-Project-Img.png`,
-    tags: ["Unity"],
-    description:
-      "This is a Third-person prototype inspired by the Legend of Zelda : Breath of the Wild",
-    note: "",
-  },
-  {
-    name: "First stop",
-    image: `assets/Images/First stop.png`,
-    tags: ["Unity"],
-    description:
-      "Contributed as a gameplay programmer to create a boss rush game for jam",
-    note: "",
-  },
-];
+import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
 ---
 
 <!--Home section-->
@@ -118,19 +76,21 @@ const PersonalProjects = [
     <div class="project-grid">
       {
         PersonalProjects.map((project) => (
-          <article class="project-card">
-            {project.image && <img src={project.image} alt={project.name} />}
+          <a href={`${import.meta.env.BASE_URL}projects/${project.slug}`} class="project-link">
+            <article class="project-card">
+              {project.image && <img src={project.image} alt={project.name} />}
 
-            <h3>{project.name}</h3>
+              <h3>{project.name}</h3>
 
-            <div class="project-tags">
-              {project.tags.map((tag) => (
-                <span class="tag"> {tag} </span>
-              ))}
-            </div>
+              <div class="project-tags">
+                {project.tags.map((tag) => (
+                  <span class="tag"> {tag} </span>
+                ))}
+              </div>
 
-            <p class="project-description">{project.description}</p>
-          </article>
+              <p class="project-description">{project.description}</p>
+            </article>
+          </a>
         ))
       }
     </div>
@@ -256,9 +216,10 @@ const PersonalProjects = [
   }
 
   .project-grid {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     background: linear-gradient(90deg, #101010, #101010, #101010);
-    grid-template-columns: repeat(3, 1fr);
     gap: 3em;
     padding: 5em 0;
     margin-top: 0;
@@ -446,7 +407,6 @@ const PersonalProjects = [
     }
 
     .project-grid {
-      grid-template-columns: repeat(2, 1fr);
       padding: 3em 2em;
     }
   }
@@ -462,7 +422,6 @@ const PersonalProjects = [
     }
 
     .project-grid {
-      grid-template-columns: 1fr;
       padding: 2em 1em;
       gap: 2em;
     }
@@ -492,6 +451,13 @@ const PersonalProjects = [
       padding-bottom: 2em;
       text-align: center;
     }
+  }
+
+  .project-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    outline: none;
   }
 </style>
 
