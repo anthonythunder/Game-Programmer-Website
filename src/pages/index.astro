@@ -1,16 +1,15 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Anthony D'souza";
-const description = "Gameplay programmmer";
+const description = "Gameplay programmer";
 const email = "dsouzaanthony781@gmail.com";
 const phone = "+91 9325374664";
 const github = "https://github.com/anthonythunder";
-const linkdin = "https://www.linkedin.com/in/anthony-dsouza-12o4/";
+const linkedin = "https://www.linkedin.com/in/anthony-dsouza-12o4/";
 const permalink = Astro.site.href;
 
-const ProfesionalProjects = [
+const ProfessionalProjects = [
   {
     name: "Thermoverse",
     image: `assets/Images/Thermax Logo 2_.png`,
@@ -41,7 +40,7 @@ const PersonalProjects = [
     image: `assets/Images/Botw-Project-Img.png`,
     tags: ["Unity"],
     description:
-      "This is a Third-persorn protype inspired by the Legend of Zelda : Breath of the Wild",
+      "This is a Third-person prototype inspired by the Legend of Zelda : Breath of the Wild",
     note: "",
   },
   {
@@ -60,7 +59,14 @@ const PersonalProjects = [
   <!--Video section -->
 
   <section id="home" class="hero-video">
-    <video id="hero-video" src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`} autoplay muted loop playsinline>
+    <video
+      id="hero-video"
+      src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`}
+      autoplay
+      muted
+      loop
+      playsinline
+    >
     </video>
     <div class="hero-overlay"></div>
 
@@ -81,21 +87,21 @@ const PersonalProjects = [
 
     <div class="project-grid">
       {
-        ProfesionalProjects.map((projects) => (
+        ProfessionalProjects.map((project) => (
           <article class="project-card">
-            {projects.image && <img src={projects.image} alt={projects.name} />}
+            {project.image && <img src={project.image} alt={project.name} />}
 
-            <h3>{projects.name}</h3>
+            <h3>{project.name}</h3>
 
             <div class="project-tags">
-              {projects.tags.map((tag) => (
+              {project.tags.map((tag) => (
                 <span class="tag"> {tag} </span>
               ))}
             </div>
 
-            <p class="project-description">{projects.description}</p>
+            <p class="project-description">{project.description}</p>
 
-            <i>{projects.note}</i>
+            <i>{project.note}</i>
           </article>
         ))
       }
@@ -111,19 +117,19 @@ const PersonalProjects = [
 
     <div class="project-grid">
       {
-        PersonalProjects.map((projects) => (
+        PersonalProjects.map((project) => (
           <article class="project-card">
-            {projects.image && <img src={projects.image} alt={projects.name} />}
+            {project.image && <img src={project.image} alt={project.name} />}
 
-            <h3>{projects.name}</h3>
+            <h3>{project.name}</h3>
 
             <div class="project-tags">
-              {projects.tags.map((tag) => (
+              {project.tags.map((tag) => (
                 <span class="tag"> {tag} </span>
               ))}
             </div>
 
-            <p class="project-description">{projects.description}</p>
+            <p class="project-description">{project.description}</p>
           </article>
         ))
       }
@@ -139,7 +145,7 @@ const PersonalProjects = [
 
     <div class="contact-content">
       <a
-        href={linkdin}
+        href={linkedin}
         target="_blank"
         aria-label="LinkedIn"
         class="social-link"
@@ -199,7 +205,7 @@ const PersonalProjects = [
       </a>
     </div>
     <div class="contact-content-phone">
-      <p>Phone :- +91 9325374664</p>
+      <p>Phone :- {phone}</p>
     </div>
   </section>
 </BaseLayout>
