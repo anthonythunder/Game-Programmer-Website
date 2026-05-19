@@ -9,6 +9,9 @@ const github = "https://github.com/anthonythunder";
 const linkedin = "https://www.linkedin.com/in/anthony-dsouza-12o4/";
 const permalink = Astro.site?.href || Astro.url.href;
 
+const rawBase = import.meta.env.BASE_URL;
+const baseUrl = rawBase.endsWith('/') ? rawBase : rawBase + '/';
+
 import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
 ---
 
@@ -19,7 +22,7 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
   <section id="home" class="hero-video">
     <video
       id="hero-video"
-      src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`}
+      src={`${baseUrl}assets/gameplay.mp4`}
       autoplay
       muted
       loop
@@ -43,7 +46,7 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
       <h2>Gameplay highlights</h2>
     </header>
 
-    <div class="highlights-carousel" data-base-url={import.meta.env.BASE_URL}>
+    <div class="highlights-carousel" data-base-url={baseUrl}>
       <div class="carousel-side prev-side" id="prev-video-trigger">
         <video
           class="side-video"
@@ -62,7 +65,7 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
         >
         <video
           id="highlights-video-player"
-          src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`}
+          src={`${baseUrl}assets/gameplay.mp4`}
           controls
           playsinline
           class="highlights-video"
@@ -658,7 +661,8 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
     const highlightsContainer = document.querySelector(".highlights-carousel");
 
     if (highlightsVideo && highlightsContainer) {
-      const baseUrl = highlightsContainer.getAttribute("data-base-url");
+      const rawBase = highlightsContainer.getAttribute("data-base-url") || "";
+      const baseUrl = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 
       // Add your video file paths here!
       const videos = [

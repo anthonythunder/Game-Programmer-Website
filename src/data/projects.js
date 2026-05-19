@@ -1,4 +1,5 @@
-const BASE_URL = import.meta.env.BASE_URL;
+const rawBase = import.meta.env.BASE_URL;
+const BASE_URL = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 
 export const ProfessionalProjects = [
   {

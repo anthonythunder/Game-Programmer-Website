@@ -1,4 +1,6 @@
 ---
+const rawBase = import.meta.env.BASE_URL;
+const baseUrl = rawBase.endsWith('/') ? rawBase : rawBase + '/';
 const { current = "" } = Astro.props;
 ---
 
@@ -68,19 +70,19 @@ const { current = "" } = Astro.props;
 </style>
 
 <nav>
-  <a class={current === "" ? "selected" : ""} href={import.meta.env.BASE_URL}
+  <a class={current === "" ? "selected" : ""} href={baseUrl}
     >home</a
   >
   <a
     class={current === "project" ? "selected" : ""}
-    href={`${import.meta.env.BASE_URL}#project`}>projects</a
+    href={`${baseUrl}#project`}>projects</a
   >
   <a
     class={current === "about" ? "selected" : ""}
-    href={`${import.meta.env.BASE_URL}#about`}>about</a
+    href={`${baseUrl}#about`}>about</a
   >
   <a
     class={current === "resume" ? "selected" : ""}
-    href={`${import.meta.env.BASE_URL}resume`}>resume</a
+    href={`${baseUrl}resume`}>resume</a
   >
 </nav>
