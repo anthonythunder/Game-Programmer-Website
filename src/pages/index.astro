@@ -36,6 +36,57 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
     </div>
   </section>
 
+  <!--Gameplay highlights -->
+
+  <section id="highlights" class="highlights-section project-section">
+    <header class="project-header">
+      <h2>Gameplay highlights</h2>
+    </header>
+
+    <div class="highlights-carousel" data-base-url={import.meta.env.BASE_URL}>
+      <div class="carousel-side prev-side" id="prev-video-trigger">
+        <video
+          class="side-video"
+          id="prev-video-player"
+          muted
+          playsinline
+          preload="metadata"></video>
+        <div class="side-overlay"></div>
+      </div>
+
+      <div class="carousel-main">
+        <button
+          id="prev-video"
+          class="carousel-btn carousel-btn-left"
+          aria-label="Previous video">&#10094;</button
+        >
+        <video
+          id="highlights-video-player"
+          src={`${import.meta.env.BASE_URL}assets/gameplay.mp4`}
+          controls
+          playsinline
+          class="highlights-video"
+        >
+        </video>
+        <button
+          id="next-video"
+          class="carousel-btn carousel-btn-right"
+          aria-label="Next video">&#10095;</button
+        >
+      </div>
+
+      <div class="carousel-side next-side" id="next-video-trigger">
+        <video
+          class="side-video"
+          id="next-video-player"
+          muted
+          playsinline
+          preload="metadata"></video>
+        <div class="side-overlay"></div>
+      </div>
+    </div>
+  </section>
+
   <!--Project section -->
 
   <section id="project" class="project-section">
@@ -65,7 +116,6 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
       }
     </div>
   </section>
-
   <!--Personal projects -->
 
   <section id="project" class="project-section">
@@ -76,7 +126,7 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
     <div class="project-grid">
       {
         PersonalProjects.map((project) => (
-          <a href={`${import.meta.env.BASE_URL}projects/${project.slug}`} class="project-link">
+          <div class="project-link">
             <article class="project-card">
               {project.image && <img src={project.image} alt={project.name} />}
 
@@ -90,12 +140,11 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
 
               <p class="project-description">{project.description}</p>
             </article>
-          </a>
+          </div>
         ))
       }
     </div>
   </section>
-
   <!--Contact-->
 
   <section class="contact-section" id="contact">
@@ -294,6 +343,118 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
     font-style: italic;
     text-align: left;
   }
+
+  /* Highlights */
+  .highlights-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2em 1em;
+    max-width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .carousel-side {
+    position: relative;
+    width: 25%;
+    max-width: 300px;
+    opacity: 0.4;
+    cursor: pointer;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 1;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .carousel-side:hover {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+
+  .side-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 16/9;
+  }
+
+  .side-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .carousel-main {
+    flex: 0 0 auto;
+    width: 60%;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .highlights-video {
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background-color: #000;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(41, 41, 48, 0.8);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .carousel-btn-left {
+    left: -25px;
+  }
+
+  .carousel-btn-right {
+    right: -25px;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  @media (max-width: 1000px) {
+    .carousel-side {
+      display: none;
+    }
+    .carousel-main {
+      width: 100%;
+      padding: 0 1em;
+    }
+    .carousel-btn-left {
+      left: 10px;
+    }
+    .carousel-btn-right {
+      right: 10px;
+    }
+  }
+
   /*hero video*/
 
   .hero-video {
@@ -484,6 +645,65 @@ import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
       );
 
       observer.observe(video);
+    }
+
+    // Highlights Video Carousel Logic
+    const highlightsVideo = document.getElementById("highlights-video-player");
+    const prevVideoPlayer = document.getElementById("prev-video-player");
+    const nextVideoPlayer = document.getElementById("next-video-player");
+    const prevBtn = document.getElementById("prev-video");
+    const nextBtn = document.getElementById("next-video");
+    const prevTrigger = document.getElementById("prev-video-trigger");
+    const nextTrigger = document.getElementById("next-video-trigger");
+    const highlightsContainer = document.querySelector(".highlights-carousel");
+
+    if (highlightsVideo && highlightsContainer) {
+      const baseUrl = highlightsContainer.getAttribute("data-base-url");
+
+      // Add your video file paths here!
+      const videos = [
+        "assets/gameplay.mp4",
+        "assets/Insas Test.mp4",
+        "assets/Realestate A1.mp4",
+        "assets/Vehicle Decontamination System 720.mp4",
+      ];
+
+      let currentVideoIndex = 0;
+
+      const getPrevIndex = () =>
+        (currentVideoIndex - 1 + videos.length) % videos.length;
+      const getNextIndex = () => (currentVideoIndex + 1) % videos.length;
+
+      const updateVideo = () => {
+        if (highlightsVideo instanceof HTMLVideoElement) {
+          highlightsVideo.src = baseUrl + videos[currentVideoIndex];
+          highlightsVideo.play().catch(() => {});
+        }
+        if (prevVideoPlayer instanceof HTMLVideoElement) {
+          prevVideoPlayer.src = baseUrl + videos[getPrevIndex()] + "#t=0.001";
+        }
+        if (nextVideoPlayer instanceof HTMLVideoElement) {
+          nextVideoPlayer.src = baseUrl + videos[getNextIndex()] + "#t=0.001";
+        }
+      };
+
+      // initialize thumbnails
+      updateVideo();
+
+      const goPrev = () => {
+        currentVideoIndex = getPrevIndex();
+        updateVideo();
+      };
+
+      const goNext = () => {
+        currentVideoIndex = getNextIndex();
+        updateVideo();
+      };
+
+      if (prevBtn) prevBtn.addEventListener("click", goPrev);
+      if (nextBtn) nextBtn.addEventListener("click", goNext);
+      if (prevTrigger) prevTrigger.addEventListener("click", goPrev);
+      if (nextTrigger) nextTrigger.addEventListener("click", goNext);
     }
   });
 </script>

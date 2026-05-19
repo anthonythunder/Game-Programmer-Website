@@ -7,9 +7,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  // site: 'https://anthonythunder.github.io/',
-  // site: 'http://localhost:4321/',
-  // base: '/Game-Programmer-Website/',
+  site: 'https://anthonythunder.github.io/',
+  base: '/Game-Programmer-Website/',
   integrations: [mdx(), svelte()],
   markdown: {
     shikiConfig: {

@@ -16,13 +16,44 @@ export const ProfessionalProjects = [
       "Contributed to the development of a VR-based drone simulator used for training and operational practice.This is a demo project",
     note: "",
   },
-  {
-    name: "Insas Gun Assembly VR",
-    image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
-    tags: ["Unity", "C#"],
-    description: "This is a demo project",
-    note: "",
-  },
+];
+
+export const ProfessionalDemos = [{
+  name: "Gun Assembly VR",
+  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  tags: ["Unity", "C#"],
+  description: "This is a demo project",
+  note: "",
+},
+{
+  name: "IED Disposal VR",
+  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  tags: ["Unity", "C#"],
+  description: "This is a demo project",
+  note: "",
+},
+{
+  name: "Point Switch machine control",
+  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  tags: ["Unity", "C#"],
+  description: "This is a demo project",
+  note: "",
+},
+
+{
+  name: "Fire fighing multiplayer",
+  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  tags: ["Unity", "C#"],
+  description: "This is a demo project",
+  note: "",
+},
+{
+  name: "Bailey bridge assembly VR",
+  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  tags: ["Unity", "C#"],
+  description: "This is a demo project",
+  note: "",
+},
 ];
 
 export const PersonalProjects = [
