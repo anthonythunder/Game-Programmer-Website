@@ -4,7 +4,7 @@ const BASE_URL = rawBase.endsWith("/") ? rawBase : rawBase + "/";
 export const ProfessionalProjects = [
   {
     name: "Thermoverse",
-    image: `${BASE_URL}assets/Images/Thermax Logo 2_.png`,
+    image: `${BASE_URL}assets/Images/Thermax Logo.png`,
     tags: ["Unity", "C#"],
     description: "internal Training/learning application for Thermax Limited",
     note: "Application was for internal use and not publicly released.",
