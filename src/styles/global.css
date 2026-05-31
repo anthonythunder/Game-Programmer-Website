@@ -5,6 +5,7 @@
   --primary-color: #548e9b;
   --font-family-serif: Merriweather, serif;
   --font-family-sans: 'Fira Sans', sans-serif;
+  --font-family-debug: 'Debug', sans-serif;
 }
 
 html {
@@ -40,7 +41,14 @@ body {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--font-family-debug);
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.03em;
+}
+
 h5,
 h6 {
   font-family: var(--font-family-sans);
@@ -50,14 +58,13 @@ h6 {
 }
 
 h1 {
-  font-family: var(--font-family-serif);
   font-size: 4em;
   margin: 0 0 1em 0;
 }
 
 h2 {
-  margin: 1.6em 0 0 0;
-  font-size: 1.8em;
+  margin: 1em 0 0.5em 0;
+  font-size: 2em;
 }
 
 h3 {
@@ -224,12 +231,12 @@ td {
   background-color: var(--theme-code-inline-bg);
 }
 
-.theme-toggle > label:focus-within {
+.theme-toggle>label:focus-within {
   outline: 2px solid transparent;
   box-shadow: 0 0 0 0.08em var(--theme-accent), 0 0 0 0.12em white;
 }
 
-.theme-toggle > label {
+.theme-toggle>label {
   color: var(--theme-code-inline-text);
   position: relative;
   display: flex;
@@ -255,6 +262,7 @@ input[name='theme-toggle'] {
 }
 
 #home,
+#highlights,
 #project,
 #about {
   scroll-margin-top: 90px;

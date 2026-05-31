@@ -6,15 +6,15 @@ export const ProfessionalProjects = [
     name: "Thermoverse",
     image: `${BASE_URL}assets/Images/Thermax Logo.png`,
     tags: ["Unity", "C#"],
-    description: "internal Training/learning application for Thermax Limited",
-    note: "Application was for internal use and not publicly released.",
+    description: "Software programmer",
+    note: "",
   },
   {
     name: "Drone Simulator",
     image: `${BASE_URL}assets/Images/Drone simulator.png`,
-    tags: ["Unity", "C#"],
+    tags: ["Unity", "C#", "VR",],
     description:
-      "Contributed to the development of a VR-based drone simulator used for training and operational practice.This is a demo project",
+      "Level designer and gameplay programmer",
     note: "",
   },
 ];
@@ -22,14 +22,14 @@ export const ProfessionalProjects = [
 export const ProfessionalDemos = [{
   name: "Gun Assembly VR",
   image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
-  tags: ["Unity", "C#"],
+  tags: ["Unity", "C#", "VR"],
   description: "This is a demo project",
   note: "",
 },
 {
   name: "IED Disposal VR",
   image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
-  tags: ["Unity", "C#"],
+  tags: ["Unity", "C#", "VR"],
   description: "This is a demo project",
   note: "",
 },
@@ -62,9 +62,10 @@ export const PersonalProjects = [
     slug: "botw-prototype",
     name: "Botw Prototype",
     image: `${BASE_URL}assets/Images/Botw-Project-Img.png`,
-    tags: ["Unity"],
+    tags: ["Unity", "C#", "blender"],
     description:
-      "This is a Third-person prototype inspired by the Legend of Zelda : Breath of the Wild",
+      "Programmed the character movements, Abilites, combat system"
+    ,
     software: "Unity",
     media: [
       { type: "image", url: `${BASE_URL}assets/Images/Botw-Project-Img.png` }
@@ -75,9 +76,9 @@ export const PersonalProjects = [
     slug: "first-stop",
     name: "First stop",
     image: `${BASE_URL}assets/Images/First stop.png`,
-    tags: ["Unity"],
+    tags: ["Unity", "C#", "blender"],
     description:
-      "Contributed as a gameplay programmer to create a boss rush game for jam",
+      "Gameplay programmer, Modeler and Animator",
     software: "Unity",
     media: [
       { type: "image", url: `${BASE_URL}assets/Images/First stop.png` }

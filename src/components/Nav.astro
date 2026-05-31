@@ -74,6 +74,10 @@ const { current = "" } = Astro.props;
     >home</a
   >
   <a
+    class={current === "highlights" ? "selected" : ""}
+    href={`${baseUrl}#highlights`}>highlights</a
+  >
+  <a
     class={current === "project" ? "selected" : ""}
     href={`${baseUrl}#project`}>projects</a
   >

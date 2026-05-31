@@ -1,14 +1,25 @@
-  <style>
-  img {
-    display: block;
-    width: 75px;
+<style>
+  .logo {
+    font-size: 2.2rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-family-debug);
+    font-weight: normal;
+    white-space: nowrap;
   }
 
-  @media screen and (max-width: 520px) {
-    img {
-      display: none;
+  @media screen and (max-width: 768px) {
+    .logo {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .logo {
+      font-size: 1.2rem;
     }
   }
 </style>
-  
-<h4 text-align = center> Anthony D'souza </h4>
+
+<h4 class="logo">Anthony Dsouza</h4>
