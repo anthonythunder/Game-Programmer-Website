@@ -10,49 +10,49 @@ export const ProfessionalProjects = [
     note: "",
   },
   {
+    name: "Fire Safety VR simulator",
+    image: `${BASE_URL}assets/Images/P ff.png`,
+    tags: ["Unity", "C#", "VR",],
+    description:
+      "Gameplay programmer",
+    note: "",
+  },
+  {
     name: "Drone Simulator",
     image: `${BASE_URL}assets/Images/Drone simulator.png`,
     tags: ["Unity", "C#", "VR",],
     description:
-      "Level designer and gameplay programmer",
+      "Gameplay programmer",
     note: "",
   },
 ];
 
-export const ProfessionalDemos = [{
+export const Demos = [{
   name: "Gun Assembly VR",
   image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
   tags: ["Unity", "C#", "VR"],
-  description: "This is a demo project",
+  description: "Gun assembling and disassembling VR experience",
   note: "",
 },
 {
   name: "IED Disposal VR",
-  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  image: `${BASE_URL}assets/Images/IED Disposal.png`,
   tags: ["Unity", "C#", "VR"],
-  description: "This is a demo project",
+  description: "IED Disposal Mission in VR",
   note: "",
 },
-{
-  name: "Point Switch machine control",
-  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
-  tags: ["Unity", "C#"],
-  description: "This is a demo project",
-  note: "",
-},
-
 {
   name: "Fire fighing multiplayer",
-  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  image: `${BASE_URL}assets/Images/Fire fight multiplayer.png`,
   tags: ["Unity", "C#"],
-  description: "This is a demo project",
+  description: "A multiplayer demo developed for a fire fighing event",
   note: "",
 },
 {
   name: "Bailey bridge assembly VR",
-  image: `${BASE_URL}assets/Images/Insas Gun thumbnail.png`,
+  image: `${BASE_URL}assets/Images/Bailey bridge.png`,
   tags: ["Unity", "C#"],
-  description: "This is a demo project",
+  description: "Bailey bridge assembling steps in VR",
   note: "",
 },
 ];

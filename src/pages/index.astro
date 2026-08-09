@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { ProfessionalProjects, PersonalProjects } from "../data/projects.js";
+import {
+  ProfessionalProjects,
+  PersonalProjects,
+  Demos,
+} from "../data/projects.js";
 
 const title = "Anthony Dsouza";
 const description = "Gameplay programmer";
@@ -21,7 +25,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
   <section id="home" class="hero-video">
     <video
       id="hero-video"
-      src={baseUrl + "assets/gameplay.mp4"}
+      src={baseUrl + "assets/Weapon and Combat Zelda.mp4"}
       autoplay
       muted
       loop
@@ -184,6 +188,49 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
       }
     </div>
   </section>
+
+  <!--Demos -->
+
+  <section id="project" class="project-section">
+    <header class="project-header">
+      <h2>Demos</h2>
+    </header>
+
+    <div class="project-grid">
+      {
+        Demos.map((project) => (
+          <div class="project-link">
+            <article class="project-card">
+              {project.image && <img src={project.image} alt={project.name} />}
+
+              <h3>{project.name}</h3>
+
+              <div class="project-info">
+                <div class="info-item">
+                  <span class="info-label">Tech:</span>
+                  <div class="project-tags">
+                    {project.tags.map((tag) => (
+                      <span class="tag"> {tag} </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <span class="info-label">Role:</span>
+                  <span class="info-value">
+                    {project.role || "Unity Developer"}
+                  </span>
+                </div>
+              </div>
+
+              <p class="project-description">{project.description}</p>
+            </article>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
   <!--Contact-->
 
   <section class="contact-section" id="contact">
@@ -812,10 +859,10 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
       // Add your video file paths here!
       const videos = [
         "assets/gameplay.mp4",
+        "assets/Weapon and Combat Zelda.mp4",
         "assets/Insas Test.mp4",
         "assets/Realestate A1.mp4",
         "assets/Vehicle Decontamination System 720.mp4",
-        "assets/Weapon and Combat Zelda.mp4",
       ];
 
       let currentVideoIndex = 0;
