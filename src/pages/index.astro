@@ -12,10 +12,9 @@ const email = "dsouzaanthony781@gmail.com";
 const phone = "+91 9325374664";
 const github = "https://github.com/anthonythunder";
 const linkedin = "https://www.linkedin.com/in/anthony-dsouza-12o4/";
-const permalink = Astro.site?.href || Astro.url.href;
-
 const rawBase = import.meta.env.BASE_URL;
 const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
+const permalink = new URL(baseUrl, Astro.site || Astro.url).href;
 ---
 
 <!--Home section-->
@@ -149,7 +148,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
   </section>
   <!--Personal projects -->
 
-  <section id="project" class="project-section">
+  <section id="personal-projects" class="project-section">
     <header class="project-header">
       <h2>Personal work</h2>
     </header>
@@ -157,7 +156,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
     <div class="project-grid">
       {
         PersonalProjects.map((project) => (
-          <div class="project-link">
+          <a href={`${baseUrl}projects/${project.slug}`} class="project-link">
             <article class="project-card">
               {project.image && <img src={project.image} alt={project.name} />}
 
@@ -183,7 +182,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
 
               <p class="project-description">{project.description}</p>
             </article>
-          </div>
+          </a>
         ))
       }
     </div>
@@ -191,7 +190,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
 
   <!--Demos -->
 
-  <section id="project" class="project-section">
+  <section id="demos" class="project-section">
     <header class="project-header">
       <h2>Demos</h2>
     </header>
@@ -623,7 +622,7 @@ const baseUrl = rawBase.endsWith("/") ? rawBase : rawBase + "/";
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-    top: 450px;
+    top: 720px;
 
     background: linear-gradient(45deg, #212121, #1d1d1dce, #1e1e1e7f);
   }

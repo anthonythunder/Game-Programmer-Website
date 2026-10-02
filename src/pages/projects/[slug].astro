@@ -12,8 +12,7 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const rawBase = import.meta.env.BASE_URL;
 const baseUrl = rawBase.endsWith('/') ? rawBase : rawBase + '/';
-// Ensures permalink acts as a fully qualified path based on local domain / dev origin
-const permalink = `${Astro.site?.href || Astro.url.origin + "/"}${baseUrl}projects/${project.slug}`;
+const permalink = new URL(`${baseUrl}projects/${project.slug}`, Astro.site || Astro.url).href;
 ---
 
 <BaseLayout

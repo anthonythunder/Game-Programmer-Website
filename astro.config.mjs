@@ -7,8 +7,8 @@ import rehypeExternalLinks from 'rehype-external-links'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://anthonythunder.github.io/',
-  base: process.env.NODE_ENV === 'production' ? '/Game-Programmer-Website/' : '/',
+  site: 'https://anthonythunder.github.io',
+  base: '/Game-Programmer-Website',
   server: {
     open: true,
   },
